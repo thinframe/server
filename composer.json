@@ -1,0 +1,30 @@
+{
+    "name": "thinframe/server",
+    "type": "library",
+    "homepage": "http://thinframe.net",
+    "description": "HTTP Server written in PHP",
+    "keywords": ["thinframe", "http", "server"],
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Sorin Badea",
+            "email": "sorin.badea91@gmail.com",
+            "homepage": "http://sorinbadea.me",
+            "role": "Developer"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {
+        "php": ">=5.4.0",
+        "thinframe/foundation": "dev-master",
+        "thinframe/http": "dev-master",
+        "thinframe/applications": "dev-master",
+        "thinframe/events": "dev-master",
+        "react/react": "dev-master"
+    },
+    "autoload": {
+        "psr-0": {
+            "": "src"
+        }
+    }
+}
