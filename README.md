@@ -4,7 +4,7 @@ HTTP Server written in PHP, based on ReactPHP.
 
 
 ###Installation:
-* via Composer: `"thinframe/foundation":"dev-master"`
+* via Composer: `"thinframe/server":"dev-master"`
 * depends on `pecl_http` package
 
 ###Copyright
