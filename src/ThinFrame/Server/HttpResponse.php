@@ -153,4 +153,16 @@ class HttpResponse implements ResponseInterface
 
         return $this;
     }
+
+    /**
+     * End response
+     *
+     * @return mixed
+     */
+    public function end()
+    {
+        $this->response->end();
+    }
+
+
 }
