@@ -53,6 +53,16 @@ class HttpResponse implements ResponseInterface
     }
 
     /**
+     * Get original request
+     *
+     * @return \React\Http\Response
+     */
+    public function getReactResponse()
+    {
+        return $this->response;
+    }
+
+    /**
      * Add response content
      *
      * @param mixed $content
@@ -75,7 +85,7 @@ class HttpResponse implements ResponseInterface
     /**
      * Dispatch http headers
      */
-    private function dispatchHeaders()
+    public function dispatchHeaders()
     {
         $this->response->writeHead($this->statusCode->__toString(), iterator_to_array($this->headers));
     }
@@ -126,18 +136,6 @@ class HttpResponse implements ResponseInterface
         $this->headers = $headers;
 
         return $this;
-    }
-
-    /**
-     * Destructor
-     */
-    function __destruct()
-    {
-        $this->addCookie(new Cookie('username', 'unusorin'));
-        if (!$this->contentSend) {
-            $this->dispatchHeaders();
-            $this->response->end();
-        }
     }
 
     /**

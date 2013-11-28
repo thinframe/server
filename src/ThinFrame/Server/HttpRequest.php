@@ -161,4 +161,16 @@ class HttpRequest implements RequestInterface
     {
         return $this->request->remoteAddress;
     }
+
+    /**
+     * Get React request object
+     *
+     * @return \React\Http\Request
+     */
+    public function getReactRequest()
+    {
+        return $this->request;
+    }
+
+
 }
