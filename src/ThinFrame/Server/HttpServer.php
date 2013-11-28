@@ -107,6 +107,26 @@ class HttpServer implements DispatcherAwareInterface
     }
 
     /**
+     * Get server port
+     *
+     * @return int
+     */
+    public function getPort()
+    {
+        return $this->port;
+    }
+
+    /**
+     * Get server host
+     *
+     * @return string
+     */
+    public function getHost()
+    {
+        return $this->host;
+    }
+
+    /**
      * Handle HTTP request
      *
      * @param Request  $request

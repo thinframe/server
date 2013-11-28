@@ -151,4 +151,14 @@ class HttpRequest implements RequestInterface
     {
         return $this->request->getPath();
     }
+
+    /**
+     * Get remote ip address
+     *
+     * @return string
+     */
+    public function getRemoteIp()
+    {
+        return $this->request->remoteAddress;
+    }
 }
