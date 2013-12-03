@@ -12,7 +12,7 @@ namespace ThinFrame\Server\React;
 use React\Http\Request;
 use React\Http\Response;
 use ThinFrame\Events\Dispatcher;
-use ThinFrame\Events\SimpleEvent;
+use ThinFrame\Server\Events\ReactRequestEvent;
 
 /**
  * Class RequestResolver
@@ -85,11 +85,11 @@ class RequestResolver
 
         if ($this->receivedDataSize >= $this->contentLength) {
             $this->dispatcher->trigger(
-                new SimpleEvent('thinframe.http.react.inbound_request', [
-                    'request'  => $this->request,
-                    'response' => $this->response,
-                    'data'     => $this->receivedData
-                ])
+                new ReactRequestEvent(
+                    $this->request,
+                    $this->response,
+                    $this->receivedData
+                )
             );
         }
     }

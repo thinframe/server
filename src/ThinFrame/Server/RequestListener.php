@@ -9,11 +9,12 @@
 
 namespace ThinFrame\Server;
 
-use ThinFrame\Events\Constants\Priority;
 use ThinFrame\Events\Dispatcher;
 use ThinFrame\Events\DispatcherAwareInterface;
 use ThinFrame\Events\ListenerInterface;
-use ThinFrame\Events\SimpleEvent;
+use ThinFrame\Server\Events\HttpRequestEvent;
+use ThinFrame\Server\Events\ReactRequestEvent;
+use ThinFrame\Server\Exceptions\AbstractHttpException;
 
 /**
  * Class RequestListener
@@ -36,9 +37,8 @@ class RequestListener implements ListenerInterface, DispatcherAwareInterface
     public function getEventMappings()
     {
         return [
-            'thinframe.http.react.inbound_request' => [
-                "method"   => "onRequest",
-                "priority" => Priority::CRITICAL
+            ReactRequestEvent::EVENT_ID => [
+                "method" => "onRequest"
             ]
         ];
     }
@@ -54,24 +54,24 @@ class RequestListener implements ListenerInterface, DispatcherAwareInterface
     /**
      * Transform React request/response instances into Http compliant objects
      *
-     * @param SimpleEvent $event
+     * @param ReactRequestEvent $event
      */
-    public function onRequest(SimpleEvent $event)
+    public function onRequest(ReactRequestEvent $event)
     {
         $event->stopPropagation();
-        $this->dispatcher->trigger(
-            new SimpleEvent(
-                'thinframe.http.inbound_request',
-                [
-                    'request'  => new HttpRequest(
-                            $event->getPayload()->get('request')->get(),
-                            $event->getPayload()->get('data')->get()
-                        ),
-                    'response' => new HttpResponse(
-                            $event->getPayload()->get('response')->get()
-                        )
-                ]
-            )
-        );
+        $request  = new HttpRequest($event->getRequest(), $event->getData());
+        $response = new HttpResponse($event->getResponse());
+
+        try {
+            $this->dispatcher->trigger(new HttpRequestEvent($request, $response));
+        } catch (AbstractHttpException $e) {
+            $response->setStatusCode($e->getStatusCode());
+            if (trim($e->getMessage()) != '') {
+                $response->addContent($e->getMessage());
+            } else {
+                $response->addContent("\0");
+            }
+            $response->end();
+        }
     }
 }
