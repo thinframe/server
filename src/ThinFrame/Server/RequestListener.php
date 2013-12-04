@@ -12,8 +12,11 @@ namespace ThinFrame\Server;
 use ThinFrame\Events\Dispatcher;
 use ThinFrame\Events\DispatcherAwareInterface;
 use ThinFrame\Events\ListenerInterface;
+use ThinFrame\Http\Constants\StatusCode;
+use ThinFrame\Server\Events\HttpExceptionEvent;
 use ThinFrame\Server\Events\HttpRequestEvent;
 use ThinFrame\Server\Events\ReactRequestEvent;
+use ThinFrame\Server\Events\UnknownHttpExceptionEvent;
 use ThinFrame\Server\Exceptions\AbstractHttpException;
 
 /**
@@ -65,13 +68,31 @@ class RequestListener implements ListenerInterface, DispatcherAwareInterface
         try {
             $this->dispatcher->trigger(new HttpRequestEvent($request, $response));
         } catch (AbstractHttpException $e) {
-            $response->setStatusCode($e->getStatusCode());
-            if (trim($e->getMessage()) != '') {
-                $response->addContent($e->getMessage());
-            } else {
-                $response->addContent("\0");
+            //handle http specific exceptions
+            $this->dispatcher->trigger($exceptionEvent = new HttpExceptionEvent($e, $request, $response));
+
+            if ($exceptionEvent->shouldPropagate()) {
+                $response->setStatusCode($e->getStatusCode());
+                if (trim($e->getMessage()) != '') {
+                    $response->addContent($e->getMessage());
+                } else {
+                    $response->addContent("\0");
+                }
+                $response->end();
             }
-            $response->end();
+        } catch (\Exception $e) {
+            //handle normal exceptions
+            $this->dispatcher->trigger($exceptionEvent = new UnknownHttpExceptionEvent($e, $request, $response));
+
+            if ($exceptionEvent->shouldPropagate()) {
+                $response->setStatusCode(new StatusCode(StatusCode::INTERNAL_SERVER_ERROR));
+                if (trim($e->getMessage()) != '') {
+                    $response->addContent($e->getMessage());
+                } else {
+                    $response->addContent("\0");
+                }
+                $response->end();
+            }
         }
     }
 }
