@@ -11,6 +11,7 @@ namespace ThinFrame\Server;
 
 use ThinFrame\Applications\AbstractApplication;
 use ThinFrame\Applications\DependencyInjection\ContainerConfigurator;
+use ThinFrame\Applications\DependencyInjection\Extensions\ConfigurationManager;
 use ThinFrame\Events\EventsApplication;
 
 /**
@@ -30,7 +31,7 @@ class ServerApplication extends AbstractApplication
      */
     public function initializeConfigurator(ContainerConfigurator $configurator)
     {
-        // noop
+        $configurator->addConfigurationManager(new ConfigurationManager('thinframe.server', 'thinframe.server'));
     }
 
     /**
@@ -41,7 +42,8 @@ class ServerApplication extends AbstractApplication
     public function getConfigurationFiles()
     {
         return [
-            'resources/services.yml'
+            'resources/services.yml',
+            'resources/config.yml'
         ];
     }
 

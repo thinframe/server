@@ -1,13 +1,13 @@
 <?php
 
 /**
- * /src/ThinFrame/Server/Cookie.php
+ * /src/ThinFrame/Server/Http/Cookie.php
  *
  * @copyright 2013 Sorin Badea <sorin.badea91@gmail.com>
  * @license   MIT license (see the license file in the root directory)
  */
 
-namespace ThinFrame\Server;
+namespace ThinFrame\Server\Http;
 
 use ThinFrame\Foundation\Constants\DataType;
 use ThinFrame\Foundation\Helpers\TypeCheck;
@@ -16,7 +16,7 @@ use ThinFrame\Http\Foundation\CookieInterface;
 /**
  * Class Cookie
  *
- * @package ThinFrame\Server
+ * @package ThinFrame\Server\Http
  * @since   0.2
  */
 class Cookie implements CookieInterface

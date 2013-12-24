@@ -9,12 +9,9 @@
 
 namespace ThinFrame\Server\Events;
 
-use PhpCollection\Map;
 use ThinFrame\Events\AbstractEvent;
-use ThinFrame\Foundation\Constants\DataType;
-use ThinFrame\Foundation\Helpers\TypeCheck;
-use ThinFrame\Server\HttpRequest;
-use ThinFrame\Server\HttpResponse;
+use ThinFrame\Server\Http\Request;
+use ThinFrame\Server\Http\Response;
 
 /**
  * Class HttpExceptionEvent
@@ -29,11 +26,11 @@ class UnknownHttpExceptionEvent extends AbstractEvent
     /**
      * Constructor
      *
-     * @param \Exception   $exception
-     * @param HttpRequest  $request
-     * @param HttpResponse $response
+     * @param \Exception $exception
+     * @param Request    $request
+     * @param Response   $response
      */
-    public function __construct(\Exception $exception, HttpRequest $request, HttpResponse $response)
+    public function __construct(\Exception $exception, Request $request, Response $response)
     {
         parent::__construct(
             self::EVENT_ID,
@@ -54,7 +51,7 @@ class UnknownHttpExceptionEvent extends AbstractEvent
     /**
      * Get http request
      *
-     * @return HttpRequest
+     * @return Request
      */
     public function getRequest()
     {
@@ -64,7 +61,7 @@ class UnknownHttpExceptionEvent extends AbstractEvent
     /**
      * Get http response
      *
-     * @return HttpResponse
+     * @return Response
      */
     public function getResponse()
     {

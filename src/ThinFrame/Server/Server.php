@@ -1,7 +1,7 @@
 <?php
 
 /**
- * /src/ThinFrame/Server/HttpServer.php
+ * /src/ThinFrame/Server/Server.php
  *
  * @copyright 2013 Sorin Badea <sorin.badea91@gmail.com>
  * @license   MIT license (see the license file in the root directory)
@@ -14,10 +14,9 @@ use React\Http\Request;
 use React\Http\Response;
 use React\Http\Server as ReactHttpServer;
 use React\Socket\Server as ReactSocketServer;
+use ThinFrame\Applications\DependencyInjection\Extensions\ConfigurationAwareInterface;
 use ThinFrame\Events\Dispatcher;
 use ThinFrame\Events\DispatcherAwareInterface;
-use ThinFrame\Foundation\Constants\DataType;
-use ThinFrame\Foundation\Helpers\TypeCheck;
 use ThinFrame\Server\React\RequestResolver;
 
 /**
@@ -26,16 +25,9 @@ use ThinFrame\Server\React\RequestResolver;
  * @package ThinFrame\Server
  * @since   0.2
  */
-class HttpServer implements DispatcherAwareInterface
+class Server implements DispatcherAwareInterface, ConfigurationAwareInterface
 {
-    /**
-     * @var int
-     */
-    private $port;
-    /**
-     * @var string
-     */
-    private $host;
+    private $configuration = ['listen' => ['port' => 1337, 'host' => '127.0.0.1']];
     /**
      * @var LoopInterface
      */
@@ -54,15 +46,14 @@ class HttpServer implements DispatcherAwareInterface
     private $dispatcher;
 
     /**
-     * @param int    $port
-     * @param string $host
+     * @param array $configuration
+     *
      */
-    public function __construct($port, $host = '127.0.0.1')
+    public function setConfiguration(array $configuration)
     {
-        TypeCheck::doCheck(DataType::INT, DataType::STRING);
-        $this->port = $port;
-        $this->host = $host;
+        $this->configuration = array_replace_recursive($this->configuration, $configuration);
     }
+
 
     /**
      * @param ReactHttpServer $httpServer
@@ -102,7 +93,10 @@ class HttpServer implements DispatcherAwareInterface
     public function start()
     {
         $this->httpServer->on('request', [$this, 'handleRequest']);
-        $this->socketServer->listen($this->port, $this->host);
+        $this->socketServer->listen(
+            $this->configuration['listen']['port'],
+            $this->configuration['listen']['host']
+        );
         $this->eventLoop->run();
     }
 
@@ -113,7 +107,7 @@ class HttpServer implements DispatcherAwareInterface
      */
     public function getPort()
     {
-        return $this->port;
+        return $this->configuration['listen']['port'];
     }
 
     /**
@@ -123,7 +117,7 @@ class HttpServer implements DispatcherAwareInterface
      */
     public function getHost()
     {
-        return $this->host;
+        return $this->configuration['listen']['host'];
     }
 
     /**

@@ -1,7 +1,3 @@
-parameters:
-  thinframe.server.port: 1337
-  thinframe.server.host: '127.0.0.1'
-
 services:
   thinframe.server.react.event_loop:
     class: 'React\EventLoop\LoopInterface'
@@ -16,14 +12,13 @@ services:
     class: 'React\Http\Server'
     arguments: ['@thinframe.server.react.socket_server']
 
-  thinframe.server.react.request_listener:
-    class: 'ThinFrame\Server\RequestListener'
+  thinframe.server.listeners.request:
+    class: 'ThinFrame\Server\Listeners\RequestListener'
     tags:
         - { name:'thinframe.events.listener' }
 
   thinframe.server:
-    class: 'ThinFrame\Server\HttpServer'
-    arguments: ['%thinframe.server.port%','%thinframe.server.host%']
+    class: 'ThinFrame\Server\Server'
     calls:
         - ['setEventLoop', ['@thinframe.server.react.event_loop']]
         - ['setSocketServer',['@thinframe.server.react.socket_server']]

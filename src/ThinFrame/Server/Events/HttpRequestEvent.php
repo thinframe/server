@@ -1,9 +1,17 @@
 <?php
+
+/**
+ * /src/ThinFrame/Server/Events/HttpRequestEvent.php
+ *
+ * @copyright 2013 Sorin Badea <sorin.badea91@gmail.com>
+ * @license   MIT license (see the license file in the root directory)
+ */
+
 namespace ThinFrame\Server\Events;
 
 use ThinFrame\Events\AbstractEvent;
-use ThinFrame\Server\HttpRequest;
-use ThinFrame\Server\HttpResponse;
+use ThinFrame\Server\Http\Request;
+use ThinFrame\Server\Http\Response;
 
 /**
  * Class HttpRequestEvent
@@ -18,10 +26,10 @@ class HttpRequestEvent extends AbstractEvent
     /**
      * Constructor
      *
-     * @param HttpRequest  $request
-     * @param HttpResponse $response
+     * @param Request  $request
+     * @param Response $response
      */
-    public function __construct(HttpRequest $request, HttpResponse $response)
+    public function __construct(Request $request, Response $response)
     {
         parent::__construct(self::EVENT_ID, ['request' => $request, 'response' => $response]);
     }
@@ -29,7 +37,7 @@ class HttpRequestEvent extends AbstractEvent
     /**
      * Get request object
      *
-     * @return HttpRequest
+     * @return Request
      */
     public function getRequest()
     {
@@ -39,7 +47,7 @@ class HttpRequestEvent extends AbstractEvent
     /**
      * Get response object
      *
-     * @return HttpResponse
+     * @return Response
      */
     public function getResponse()
     {
