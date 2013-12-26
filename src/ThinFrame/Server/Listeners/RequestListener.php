@@ -16,6 +16,7 @@ use ThinFrame\Http\Constants\StatusCode;
 use ThinFrame\Server\Events\HttpExceptionEvent;
 use ThinFrame\Server\Events\HttpRequestEvent;
 use ThinFrame\Server\Events\ReactRequestEvent;
+use ThinFrame\Server\Events\UnknownHttpExceptionEvent;
 use ThinFrame\Server\Exceptions\AbstractHttpException;
 use ThinFrame\Server\Http\RequestFactory;
 use ThinFrame\Server\Http\Response;
@@ -89,6 +90,13 @@ class RequestListener implements ListenerInterface, DispatcherAwareInterface
                     $response->getHeaders()->remove('Content-Type');
                     $response->setContent("\0");
                 }
+            }
+        } catch (\Exception $e) {
+            $this->dispatcher->trigger($event = new UnknownHttpExceptionEvent($e, $request, $response));
+            if ($event->shouldPropagate()) {
+                $response->setStatusCode(new StatusCode(StatusCode::INTERNAL_SERVER_ERROR));
+                $response->getHeaders()->remove('Content-Type');
+                $response->setContent("\0");
             }
         }
     }
