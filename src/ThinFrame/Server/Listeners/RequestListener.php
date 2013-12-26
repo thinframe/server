@@ -82,10 +82,11 @@ class RequestListener implements ListenerInterface, DispatcherAwareInterface
                 $exceptionEvent = new HttpExceptionEvent($e, $request, $response)
             );
             if ($exceptionEvent->shouldPropagate()) {
-                $response->setStatusCode(new StatusCode(StatusCode::INTERNAL_SERVER_ERROR));
+                $response->setStatusCode($e->getStatusCode());
                 if (trim($e->getMessage()) != '') {
                     $response->setContent($e->getMessage());
                 } else {
+                    $response->getHeaders()->remove('Content-Type');
                     $response->setContent("\0");
                 }
             }
