@@ -1,7 +1,7 @@
 <?php
 
 /**
- * /src/ThinFrame/Server/Server.php
+ * /src/Server.php
  *
  * @copyright 2013 Sorin Badea <sorin.badea91@gmail.com>
  * @license   MIT license (see the license file in the root directory)
@@ -17,6 +17,7 @@ use React\Socket\Server as ReactSocketServer;
 use ThinFrame\Applications\DependencyInjection\Extensions\ConfigurationAwareInterface;
 use ThinFrame\Events\Dispatcher;
 use ThinFrame\Events\DispatcherAwareInterface;
+use ThinFrame\Events\DispatcherAwareTrait;
 use ThinFrame\Server\React\RequestResolver;
 
 /**
@@ -25,8 +26,10 @@ use ThinFrame\Server\React\RequestResolver;
  * @package ThinFrame\Server
  * @since   0.2
  */
-class Server implements DispatcherAwareInterface, ConfigurationAwareInterface
+class Server implements ConfigurationAwareInterface
 {
+    use DispatcherAwareTrait;
+
     private $configuration = ['listen' => ['port' => 1337, 'host' => '127.0.0.1']];
     /**
      * @var LoopInterface
@@ -40,10 +43,6 @@ class Server implements DispatcherAwareInterface, ConfigurationAwareInterface
      * @var ReactHttpServer
      */
     private $httpServer;
-    /**
-     * @var Dispatcher
-     */
-    private $dispatcher;
 
     /**
      * @param array $configuration
@@ -77,14 +76,6 @@ class Server implements DispatcherAwareInterface, ConfigurationAwareInterface
     public function setSocketServer(ReactSocketServer $socketServer)
     {
         $this->socketServer = $socketServer;
-    }
-
-    /**
-     * @param Dispatcher $dispatcher
-     */
-    public function setDispatcher(Dispatcher $dispatcher)
-    {
-        $this->dispatcher = $dispatcher;
     }
 
     /**

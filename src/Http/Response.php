@@ -1,7 +1,7 @@
 <?php
 
 /**
- * /src/ThinFrame/Server/Http/Response.php
+ * /src/Http/Response.php
  *
  * @copyright 2013 Sorin Badea <sorin.badea91@gmail.com>
  * @license   MIT license (see the license file in the root directory)
@@ -84,6 +84,7 @@ class Response implements ResponseInterface
             $this->contentSend = true;
         }
         $this->reactResponse->write($content);
+
         return $this;
     }
 
@@ -101,6 +102,7 @@ class Response implements ResponseInterface
             $this->contentSend = true;
         }
         $this->reactResponse->end($content);
+
         return $this;
     }
 
@@ -124,6 +126,7 @@ class Response implements ResponseInterface
     public function setStatusCode(StatusCode $statusCode)
     {
         $this->statusCode = $statusCode;
+
         return $this;
     }
 
@@ -147,6 +150,7 @@ class Response implements ResponseInterface
     public function setHeaders(Map $headers)
     {
         $this->headers = $headers;
+
         return $this;
     }
 
@@ -172,6 +176,7 @@ class Response implements ResponseInterface
         $currentCookies   = $this->headers->get('Set-Cookie')->getOrElse([]);
         $currentCookies[] = $cookie->__toString();
         $this->headers->set('Set-Cookie', $currentCookies);
+
         return $this;
     }
 
@@ -193,6 +198,7 @@ class Response implements ResponseInterface
     public function dispatchHeaders()
     {
         $this->reactResponse->writeHead($this->statusCode->__toString(), iterator_to_array($this->headers));
+
         return $this;
     }
 

@@ -23,8 +23,8 @@
         "react/react": "dev-master"
     },
     "autoload": {
-        "psr-0": {
-            "": "src"
+        "psr-4": {
+            "ThinFrame\\Server\\": "src/"
         }
     }
 }

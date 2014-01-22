@@ -1,7 +1,7 @@
 <?php
 
 /**
- * /src/ThinFrame/Server/Listeners/RequestListener.php
+ * /src/Listeners/RequestListener.php
  *
  * @copyright 2013 Sorin Badea <sorin.badea91@gmail.com>
  * @license   MIT license (see the license file in the root directory)
@@ -11,6 +11,7 @@ namespace ThinFrame\Server\Listeners;
 
 use ThinFrame\Events\Dispatcher;
 use ThinFrame\Events\DispatcherAwareInterface;
+use ThinFrame\Events\DispatcherAwareTrait;
 use ThinFrame\Events\ListenerInterface;
 use ThinFrame\Http\Constants\StatusCode;
 use ThinFrame\Server\Events\HttpExceptionEvent;
@@ -27,21 +28,9 @@ use ThinFrame\Server\Http\Response;
  * @package ThinFrame\Server\Listeners
  * @since   0.2
  */
-class RequestListener implements ListenerInterface, DispatcherAwareInterface
+class RequestListener implements ListenerInterface
 {
-    /**
-     * @var Dispatcher
-     */
-    private $dispatcher;
-
-    /**
-     * @param Dispatcher $dispatcher
-     */
-    public function setDispatcher(Dispatcher $dispatcher)
-    {
-        $this->dispatcher = $dispatcher;
-    }
-
+    use DispatcherAwareTrait;
 
     /**
      * Get event mappings ["event"=>["method"=>"methodName","priority"=>1]]

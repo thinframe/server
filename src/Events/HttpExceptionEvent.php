@@ -1,7 +1,7 @@
 <?php
 
 /**
- * /src/ThinFrame/Server/Events/UnknownHttpExceptionEvent.php
+ * /src/Events/HttpExceptionEvent.php
  *
  * @copyright 2013 Sorin Badea <sorin.badea91@gmail.com>
  * @license   MIT license (see the license file in the root directory)
@@ -10,6 +10,7 @@
 namespace ThinFrame\Server\Events;
 
 use ThinFrame\Events\AbstractEvent;
+use ThinFrame\Server\Exceptions\AbstractHttpException;
 use ThinFrame\Server\Http\Request;
 use ThinFrame\Server\Http\Response;
 
@@ -19,18 +20,18 @@ use ThinFrame\Server\Http\Response;
  * @package ThinFrame\Server\Events
  * @since   0.1
  */
-class UnknownHttpExceptionEvent extends AbstractEvent
+class HttpExceptionEvent extends AbstractEvent
 {
-    const EVENT_ID = 'thinframe.server.unknown_http_exception';
+    const EVENT_ID = 'thinframe.server.http_exception';
 
     /**
      * Constructor
      *
-     * @param \Exception $exception
-     * @param Request    $request
-     * @param Response   $response
+     * @param AbstractHttpException $exception
+     * @param Request               $request
+     * @param Response              $response
      */
-    public function __construct(\Exception $exception, Request $request, Response $response)
+    public function __construct(AbstractHttpException $exception, Request $request, Response $response)
     {
         parent::__construct(
             self::EVENT_ID,
@@ -41,7 +42,7 @@ class UnknownHttpExceptionEvent extends AbstractEvent
     /**
      * Get http exception
      *
-     * @return \Exception
+     * @return AbstractHttpException
      */
     public function getHttpException()
     {
