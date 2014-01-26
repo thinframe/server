@@ -16,15 +16,20 @@
     "minimum-stability": "dev",
     "require": {
         "php": ">=5.4.0",
-        "thinframe/foundation": "dev-master",
-        "thinframe/http": "dev-master",
-        "thinframe/applications": "dev-master",
-        "thinframe/events": "dev-master",
+        "thinframe/foundation": "@stable",
+        "thinframe/http": "@stable",
+        "thinframe/applications": "@stable",
+        "thinframe/events": "@stable",
         "react/react": "dev-master"
     },
     "autoload": {
         "psr-4": {
             "ThinFrame\\Server\\": "src/"
+        }
+    },
+    "extra": {
+        "branch-alias": {
+            "dev-master": "0.2-dev"
         }
     }
 }
