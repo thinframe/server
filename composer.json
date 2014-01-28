@@ -20,6 +20,7 @@
         "thinframe/http": "@stable",
         "thinframe/applications": "@stable",
         "thinframe/events": "@stable",
+        "thinframe/monolog": "dev-master",
         "react/react": "dev-master"
     },
     "autoload": {
