@@ -3,7 +3,7 @@
         "This file locks the dependencies of your project to a known state",
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file"
     ],
-    "hash": "e12a50fb2c65ef9539af210f6df91ccc",
+    "hash": "48e5600083e5868e05786235c5b0340b",
     "packages": [
         {
             "name": "danielstjules/stringy",
@@ -102,17 +102,17 @@
         },
         {
             "name": "guzzle/parser",
-            "version": "v3.8.0",
+            "version": "v3.8.1",
             "target-dir": "Guzzle/Parser",
             "source": {
                 "type": "git",
                 "url": "https://github.com/guzzle/parser.git",
-                "reference": "77cae6425bc3466e1e47bdf6d2eebc15a092dbcc"
+                "reference": "3f52387052f2e4ef083145a0f73c3654aa14e086"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/guzzle/parser/zipball/77cae6425bc3466e1e47bdf6d2eebc15a092dbcc",
-                "reference": "77cae6425bc3466e1e47bdf6d2eebc15a092dbcc",
+                "url": "https://api.github.com/repos/guzzle/parser/zipball/3f52387052f2e4ef083145a0f73c3654aa14e086",
+                "reference": "3f52387052f2e4ef083145a0f73c3654aa14e086",
                 "shasum": ""
             },
             "require": {
@@ -143,6 +143,73 @@
                 "url"
             ],
             "time": "2013-10-24 00:04:09"
+        },
+        {
+            "name": "monolog/monolog",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/Seldaek/monolog.git",
+                "reference": "7f783c0ab09dc341f858882e2d2ce6fc36ca1351"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/Seldaek/monolog/zipball/7f783c0ab09dc341f858882e2d2ce6fc36ca1351",
+                "reference": "7f783c0ab09dc341f858882e2d2ce6fc36ca1351",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.0",
+                "psr/log": "~1.0"
+            },
+            "require-dev": {
+                "aws/aws-sdk-php": "~2.4.8",
+                "doctrine/couchdb": "dev-master",
+                "mlehner/gelf-php": "1.0.*",
+                "phpunit/phpunit": "~3.7.0",
+                "raven/raven": "~0.5",
+                "ruflin/elastica": "0.90.*"
+            },
+            "suggest": {
+                "aws/aws-sdk-php": "Allow sending log messages to AWS services like DynamoDB",
+                "doctrine/couchdb": "Allow sending log messages to a CouchDB server",
+                "ext-amqp": "Allow sending log messages to an AMQP server (1.0+ required)",
+                "ext-mongo": "Allow sending log messages to a MongoDB server",
+                "mlehner/gelf-php": "Allow sending log messages to a GrayLog2 server",
+                "raven/raven": "Allow sending log messages to a Sentry server",
+                "ruflin/elastica": "Allow sending log messages to an Elastic Search server"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.7.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-0": {
+                    "Monolog": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Jordi Boggiano",
+                    "email": "j.boggiano@seld.be",
+                    "homepage": "http://seld.be",
+                    "role": "Developer"
+                }
+            ],
+            "description": "Sends your logs to files, sockets, inboxes, databases and various web services",
+            "homepage": "http://github.com/Seldaek/monolog",
+            "keywords": [
+                "log",
+                "logging",
+                "psr-3"
+            ],
+            "time": "2014-01-17 14:16:06"
         },
         {
             "name": "phpcollection/phpcollection",
@@ -244,6 +311,49 @@
             "time": "2014-01-09 22:37:17"
         },
         {
+            "name": "psr/log",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/php-fig/log.git",
+                "reference": "a78d6504ff5d4367497785ab2ade91db3a9fbe11"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/php-fig/log/zipball/a78d6504ff5d4367497785ab2ade91db3a9fbe11",
+                "reference": "a78d6504ff5d4367497785ab2ade91db3a9fbe11",
+                "shasum": ""
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.0.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-0": {
+                    "Psr\\Log\\": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "PHP-FIG",
+                    "homepage": "http://www.php-fig.org/"
+                }
+            ],
+            "description": "Common interface for logging libraries",
+            "keywords": [
+                "log",
+                "psr",
+                "psr-3"
+            ],
+            "time": "2014-01-18 15:33:09"
+        },
+        {
             "name": "react/promise",
             "version": "dev-master",
             "source": {
@@ -295,12 +405,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/reactphp/react.git",
-                "reference": "f98ff708d90c396f930a537d58a9527b2bd45c17"
+                "reference": "9c5d786508384c58429e268d533bba542f82eb53"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/reactphp/react/zipball/f98ff708d90c396f930a537d58a9527b2bd45c17",
-                "reference": "f98ff708d90c396f930a537d58a9527b2bd45c17",
+                "url": "https://api.github.com/repos/reactphp/react/zipball/9c5d786508384c58429e268d533bba542f82eb53",
+                "reference": "9c5d786508384c58429e268d533bba542f82eb53",
                 "shasum": ""
             },
             "require": {
@@ -346,7 +456,7 @@
                 "event-loop",
                 "reactor"
             ],
-            "time": "2014-01-26 19:24:07"
+            "time": "2014-01-28 12:27:43"
         },
         {
             "name": "symfony/config",
@@ -597,22 +707,23 @@
         },
         {
             "name": "thinframe/events",
-            "version": "v0.2.1",
+            "version": "dev-master",
             "source": {
                 "type": "git",
                 "url": "https://github.com/thinframe/events.git",
-                "reference": "098b9b25d3e520e2ae2e1f4a9b911f68349e1991"
+                "reference": "ab5a145696543e0fe5f9b18d17eed187dff44cb9"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/thinframe/events/zipball/098b9b25d3e520e2ae2e1f4a9b911f68349e1991",
-                "reference": "098b9b25d3e520e2ae2e1f4a9b911f68349e1991",
+                "url": "https://api.github.com/repos/thinframe/events/zipball/ab5a145696543e0fe5f9b18d17eed187dff44cb9",
+                "reference": "ab5a145696543e0fe5f9b18d17eed187dff44cb9",
                 "shasum": ""
             },
             "require": {
                 "php": ">=5.4.0",
                 "thinframe/applications": "@stable",
-                "thinframe/foundation": "@stable"
+                "thinframe/foundation": "@stable",
+                "thinframe/monolog": "dev-master"
             },
             "require-dev": {
                 "phpunit/phpunit": "@stable"
@@ -646,7 +757,7 @@
                 "events",
                 "thinframe"
             ],
-            "time": "2014-01-26 18:45:28"
+            "time": "2014-01-31 15:27:01"
         },
         {
             "name": "thinframe/foundation",
@@ -747,6 +858,56 @@
                 "thinframe"
             ],
             "time": "2014-01-26 19:47:51"
+        },
+        {
+            "name": "thinframe/monolog",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/thinframe/monolog.git",
+                "reference": "6c70016bff4204bcf6876445a3dbe1f794e26943"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/thinframe/monolog/zipball/6c70016bff4204bcf6876445a3dbe1f794e26943",
+                "reference": "6c70016bff4204bcf6876445a3dbe1f794e26943",
+                "shasum": ""
+            },
+            "require": {
+                "monolog/monolog": "@stable",
+                "thinframe/applications": "@stable"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "0.1-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "ThinFrame\\Monolog\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Sorin Badea",
+                    "email": "sorin.badea91@gmail.com",
+                    "homepage": "http://sorinbadea.me",
+                    "role": "Developer"
+                }
+            ],
+            "description": "Monolog Application",
+            "homepage": "http://thinframe.net",
+            "keywords": [
+                "logger",
+                "monolog",
+                "thinframe"
+            ],
+            "time": "2014-01-31 15:27:07"
         }
     ],
     "packages-dev": [
@@ -760,7 +921,8 @@
         "thinframe/foundation": 0,
         "thinframe/http": 0,
         "thinframe/applications": 0,
-        "thinframe/events": 0,
+        "thinframe/events": 20,
+        "thinframe/monolog": 20,
         "react/react": 20
     },
     "platform": {

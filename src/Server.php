@@ -9,14 +9,13 @@
 
 namespace ThinFrame\Server;
 
+use Psr\Log\LoggerAwareTrait;
 use React\EventLoop\LoopInterface;
 use React\Http\Request;
 use React\Http\Response;
 use React\Http\Server as ReactHttpServer;
 use React\Socket\Server as ReactSocketServer;
 use ThinFrame\Applications\DependencyInjection\Extensions\ConfigurationAwareInterface;
-use ThinFrame\Events\Dispatcher;
-use ThinFrame\Events\DispatcherAwareInterface;
 use ThinFrame\Events\DispatcherAwareTrait;
 use ThinFrame\Server\React\RequestResolver;
 
@@ -29,6 +28,7 @@ use ThinFrame\Server\React\RequestResolver;
 class Server implements ConfigurationAwareInterface
 {
     use DispatcherAwareTrait;
+    use LoggerAwareTrait;
 
     private $configuration = ['listen' => ['port' => 1337, 'host' => '127.0.0.1']];
     /**
@@ -84,6 +84,10 @@ class Server implements ConfigurationAwareInterface
     public function start()
     {
         $this->httpServer->on('request', [$this, 'handleRequest']);
+        $this->logger->info(
+            "Server is listening at " . $this->configuration['listen']['host'] .
+            ":" . $this->configuration['listen']['port']
+        );
         $this->socketServer->listen(
             $this->configuration['listen']['port'],
             $this->configuration['listen']['host']
@@ -119,6 +123,19 @@ class Server implements ConfigurationAwareInterface
      */
     public function handleRequest(Request $request, Response $response)
     {
+        $this->logger->debug(
+            sprintf(
+                "Inbound request: %s %s HTTP/%s",
+                $request->getMethod(),
+                $request->getPath(),
+                $request->getHttpVersion()
+            ),
+            [
+                'request'  => $request,
+                'response' => $response
+            ]
+        );
+
         $request->pause();
 
         $resolver = new RequestResolver($request, $response, $this->dispatcher);

@@ -19,7 +19,7 @@
         "thinframe/foundation": "@stable",
         "thinframe/http": "@stable",
         "thinframe/applications": "@stable",
-        "thinframe/events": "@stable",
+        "thinframe/events": "dev-master",
         "thinframe/monolog": "dev-master",
         "react/react": "dev-master"
     },
