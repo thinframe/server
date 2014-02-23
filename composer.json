@@ -16,11 +16,11 @@
     "minimum-stability": "dev",
     "require": {
         "php": ">=5.4.0",
-        "thinframe/foundation": "@stable",
-        "thinframe/http": "@stable",
-        "thinframe/applications": "@stable",
-        "thinframe/events": "dev-master",
-        "thinframe/monolog": "dev-master",
+        "thinframe/foundation": "dev-develop",
+        "thinframe/http": "dev-develop",
+        "thinframe/applications": "dev-develop",
+        "thinframe/events": "dev-develop",
+        "thinframe/monolog": "dev-develop",
         "react/react": "dev-master"
     },
     "autoload": {

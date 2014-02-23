@@ -3,14 +3,12 @@
 /**
  * /src/Listeners/RequestListener.php
  *
- * @copyright 2013 Sorin Badea <sorin.badea91@gmail.com>
+ * @author    Sorin Badea <sorin.badea91@gmail.com>
  * @license   MIT license (see the license file in the root directory)
  */
 
 namespace ThinFrame\Server\Listeners;
 
-use ThinFrame\Events\Dispatcher;
-use ThinFrame\Events\DispatcherAwareInterface;
 use ThinFrame\Events\DispatcherAwareTrait;
 use ThinFrame\Events\ListenerInterface;
 use ThinFrame\Http\Constants\StatusCode;
@@ -19,6 +17,7 @@ use ThinFrame\Server\Events\HttpRequestEvent;
 use ThinFrame\Server\Events\ReactRequestEvent;
 use ThinFrame\Server\Events\UnknownHttpExceptionEvent;
 use ThinFrame\Server\Exceptions\AbstractHttpException;
+use ThinFrame\Server\Exceptions\NotFoundHttpException;
 use ThinFrame\Server\Http\RequestFactory;
 use ThinFrame\Server\Http\Response;
 
@@ -63,9 +62,7 @@ class RequestListener implements ListenerInterface
                 $requestEvent = new HttpRequestEvent($request, $response)
             );
             if ($requestEvent->shouldPropagate()) {
-                $response
-                    ->setStatusCode(new StatusCode(StatusCode::NOT_FOUND))
-                    ->setContent("\0");
+                throw new NotFoundHttpException();
             }
         } catch (AbstractHttpException $e) {
             $this->dispatcher->trigger(

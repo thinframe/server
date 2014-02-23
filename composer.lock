@@ -3,7 +3,7 @@
         "This file locks the dependencies of your project to a known state",
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file"
     ],
-    "hash": "48e5600083e5868e05786235c5b0340b",
+    "hash": "9f6e6498d5e4a056668c32f2467e99b0",
     "packages": [
         {
             "name": "danielstjules/stringy",
@@ -11,12 +11,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/danielstjules/Stringy.git",
-                "reference": "9f930262af66f3943cb5b8baa8cbc3e31bce0746"
+                "reference": "404909ffaa37f4c756817c0b1e459efee62b90a6"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/danielstjules/Stringy/zipball/9f930262af66f3943cb5b8baa8cbc3e31bce0746",
-                "reference": "9f930262af66f3943cb5b8baa8cbc3e31bce0746",
+                "url": "https://api.github.com/repos/danielstjules/Stringy/zipball/404909ffaa37f4c756817c0b1e459efee62b90a6",
+                "reference": "404909ffaa37f4c756817c0b1e459efee62b90a6",
                 "shasum": ""
             },
             "require": {
@@ -24,8 +24,8 @@
             },
             "type": "library",
             "autoload": {
-                "psr-0": {
-                    "Stringy": "src/"
+                "psr-4": {
+                    "Stringy\\": "src/"
                 }
             },
             "notification-url": "https://packagist.org/downloads/",
@@ -52,7 +52,7 @@
                 "utility",
                 "utils"
             ],
-            "time": "2013-12-17 02:04:30"
+            "time": "2014-02-17 16:22:59"
         },
         {
             "name": "evenement/evenement",
@@ -150,12 +150,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/Seldaek/monolog.git",
-                "reference": "7f783c0ab09dc341f858882e2d2ce6fc36ca1351"
+                "reference": "08f09c20805695212ebe713b6706b8efb24f96e7"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Seldaek/monolog/zipball/7f783c0ab09dc341f858882e2d2ce6fc36ca1351",
-                "reference": "7f783c0ab09dc341f858882e2d2ce6fc36ca1351",
+                "url": "https://api.github.com/repos/Seldaek/monolog/zipball/08f09c20805695212ebe713b6706b8efb24f96e7",
+                "reference": "08f09c20805695212ebe713b6706b8efb24f96e7",
                 "shasum": ""
             },
             "require": {
@@ -186,8 +186,8 @@
                 }
             },
             "autoload": {
-                "psr-0": {
-                    "Monolog": "src/"
+                "psr-4": {
+                    "Monolog\\": "src/Monolog"
                 }
             },
             "notification-url": "https://packagist.org/downloads/",
@@ -209,7 +209,7 @@
                 "logging",
                 "psr-3"
             ],
-            "time": "2014-01-17 14:16:06"
+            "time": "2014-02-20 10:38:44"
         },
         {
             "name": "phpcollection/phpcollection",
@@ -359,16 +359,19 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/reactphp/promise.git",
-                "reference": "c9784de0e84e8360533c3c5e1b2981b59c1f8f80"
+                "reference": "95fcf8b62ec1b11bfa346c60c74fe6408a8ea922"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/reactphp/promise/zipball/c9784de0e84e8360533c3c5e1b2981b59c1f8f80",
-                "reference": "c9784de0e84e8360533c3c5e1b2981b59c1f8f80",
+                "url": "https://api.github.com/repos/reactphp/promise/zipball/95fcf8b62ec1b11bfa346c60c74fe6408a8ea922",
+                "reference": "95fcf8b62ec1b11bfa346c60c74fe6408a8ea922",
                 "shasum": ""
             },
             "require": {
                 "php": ">=5.4.0"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "3.7.*"
             },
             "type": "library",
             "extra": {
@@ -377,11 +380,11 @@
                 }
             },
             "autoload": {
-                "psr-0": {
-                    "React\\Promise": "src/"
+                "psr-4": {
+                    "React\\Promise\\": "src/"
                 },
                 "files": [
-                    "src/React/Promise/functions.php"
+                    "src/functions.php"
                 ]
             },
             "notification-url": "https://packagist.org/downloads/",
@@ -397,7 +400,7 @@
                 }
             ],
             "description": "A lightweight implementation of CommonJS Promises/A for PHP",
-            "time": "2013-12-17 19:19:23"
+            "time": "2014-02-03 21:10:58"
         },
         {
             "name": "react/react",
@@ -405,12 +408,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/reactphp/react.git",
-                "reference": "9c5d786508384c58429e268d533bba542f82eb53"
+                "reference": "25c04ccef54e01ee414f9076e0532bef6a4f55a6"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/reactphp/react/zipball/9c5d786508384c58429e268d533bba542f82eb53",
-                "reference": "9c5d786508384c58429e268d533bba542f82eb53",
+                "url": "https://api.github.com/repos/reactphp/react/zipball/25c04ccef54e01ee414f9076e0532bef6a4f55a6",
+                "reference": "25c04ccef54e01ee414f9076e0532bef6a4f55a6",
                 "shasum": ""
             },
             "require": {
@@ -433,18 +436,19 @@
                 "phpunit/phpunit": "3.7.*"
             },
             "suggest": {
-                "ext-libev": "*",
-                "ext-libevent": "*"
+                "ext-event": "Allows for use of a more performant event-loop implementation.",
+                "ext-libev": "Allows for use of a more performant event-loop implementation.",
+                "ext-libevent": "Allows for use of a more performant event-loop implementation."
             },
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "0.4-dev"
+                    "dev-master": "0.5-dev"
                 }
             },
             "autoload": {
-                "psr-0": {
-                    "React": "src"
+                "psr-4": {
+                    "React\\": "src"
                 }
             },
             "notification-url": "https://packagist.org/downloads/",
@@ -456,7 +460,7 @@
                 "event-loop",
                 "reactor"
             ],
-            "time": "2014-01-28 12:27:43"
+            "time": "2014-02-10 22:00:21"
         },
         {
             "name": "symfony/config",
@@ -513,12 +517,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/DependencyInjection.git",
-                "reference": "26648a063db967e0a0510df14d22555f4afd898e"
+                "reference": "8b078899a445bc39b867626f57be6281568f987f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/DependencyInjection/zipball/26648a063db967e0a0510df14d22555f4afd898e",
-                "reference": "26648a063db967e0a0510df14d22555f4afd898e",
+                "url": "https://api.github.com/repos/symfony/DependencyInjection/zipball/8b078899a445bc39b867626f57be6281568f987f",
+                "reference": "8b078899a445bc39b867626f57be6281568f987f",
                 "shasum": ""
             },
             "require": {
@@ -552,7 +556,9 @@
             "authors": [
                 {
                     "name": "Fabien Potencier",
-                    "email": "fabien@symfony.com"
+                    "email": "fabien@symfony.com",
+                    "homepage": "http://fabien.potencier.org",
+                    "role": "Lead Developer"
                 },
                 {
                     "name": "Symfony Community",
@@ -561,7 +567,7 @@
             ],
             "description": "Symfony DependencyInjection Component",
             "homepage": "http://symfony.com",
-            "time": "2014-01-07 13:29:57"
+            "time": "2014-02-11 13:52:21"
         },
         {
             "name": "symfony/filesystem",
@@ -659,16 +665,16 @@
         },
         {
             "name": "thinframe/applications",
-            "version": "v0.2.1",
+            "version": "dev-develop",
             "source": {
                 "type": "git",
                 "url": "https://github.com/thinframe/applications.git",
-                "reference": "a8885fcd095c36e538e21edfed3093d86c7f4b02"
+                "reference": "bffc51ad67fa0323a3449023b1279b27c23fb909"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/thinframe/applications/zipball/a8885fcd095c36e538e21edfed3093d86c7f4b02",
-                "reference": "a8885fcd095c36e538e21edfed3093d86c7f4b02",
+                "url": "https://api.github.com/repos/thinframe/applications/zipball/bffc51ad67fa0323a3449023b1279b27c23fb909",
+                "reference": "bffc51ad67fa0323a3449023b1279b27c23fb909",
                 "shasum": ""
             },
             "require": {
@@ -676,9 +682,15 @@
                 "symfony/config": "@stable",
                 "symfony/dependency-injection": "@stable",
                 "symfony/yaml": "@stable",
-                "thinframe/foundation": "@stable"
+                "thinframe/foundation": "dev-develop"
             },
             "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "0.2-dev",
+                    "dev-develop": "0.3-dev"
+                }
+            },
             "autoload": {
                 "psr-4": {
                     "ThinFrame\\Applications\\": "src/"
@@ -703,27 +715,27 @@
                 "ecosystem",
                 "thinframe"
             ],
-            "time": "2014-01-26 18:37:39"
+            "time": "2014-02-13 17:54:01"
         },
         {
             "name": "thinframe/events",
-            "version": "dev-master",
+            "version": "dev-develop",
             "source": {
                 "type": "git",
                 "url": "https://github.com/thinframe/events.git",
-                "reference": "ab5a145696543e0fe5f9b18d17eed187dff44cb9"
+                "reference": "96961a3c3267987d3eec2bdf2956d4bb31df5c7d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/thinframe/events/zipball/ab5a145696543e0fe5f9b18d17eed187dff44cb9",
-                "reference": "ab5a145696543e0fe5f9b18d17eed187dff44cb9",
+                "url": "https://api.github.com/repos/thinframe/events/zipball/96961a3c3267987d3eec2bdf2956d4bb31df5c7d",
+                "reference": "96961a3c3267987d3eec2bdf2956d4bb31df5c7d",
                 "shasum": ""
             },
             "require": {
                 "php": ">=5.4.0",
-                "thinframe/applications": "@stable",
-                "thinframe/foundation": "@stable",
-                "thinframe/monolog": "dev-master"
+                "thinframe/applications": "dev-develop",
+                "thinframe/foundation": "dev-develop",
+                "thinframe/monolog": "dev-develop"
             },
             "require-dev": {
                 "phpunit/phpunit": "@stable"
@@ -757,20 +769,20 @@
                 "events",
                 "thinframe"
             ],
-            "time": "2014-01-31 15:27:01"
+            "time": "2014-02-13 21:00:08"
         },
         {
             "name": "thinframe/foundation",
-            "version": "v0.2.1",
+            "version": "dev-develop",
             "source": {
                 "type": "git",
                 "url": "https://github.com/thinframe/foundation.git",
-                "reference": "b95f50d5bcdec6c433e5b930e2b3e6724c21909b"
+                "reference": "c48b0c6e127b6ce0ffd65b4ee5d2e7eaa697ff58"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/thinframe/foundation/zipball/b95f50d5bcdec6c433e5b930e2b3e6724c21909b",
-                "reference": "b95f50d5bcdec6c433e5b930e2b3e6724c21909b",
+                "url": "https://api.github.com/repos/thinframe/foundation/zipball/c48b0c6e127b6ce0ffd65b4ee5d2e7eaa697ff58",
+                "reference": "c48b0c6e127b6ce0ffd65b4ee5d2e7eaa697ff58",
                 "shasum": ""
             },
             "require": {
@@ -784,7 +796,8 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "0.2-dev"
+                    "dev-master": "0.2-dev",
+                    "dev-develop": "0.3-dev"
                 }
             },
             "autoload": {
@@ -810,25 +823,25 @@
                 "foundation",
                 "thinframe"
             ],
-            "time": "2014-01-26 18:30:10"
+            "time": "2014-02-12 18:02:48"
         },
         {
             "name": "thinframe/http",
-            "version": "v0.2.1",
+            "version": "dev-develop",
             "source": {
                 "type": "git",
                 "url": "https://github.com/thinframe/http.git",
-                "reference": "4c550c2ee9bfc1eef4b11b6de28860348c734bfc"
+                "reference": "5c08d03ae0f36a2a30edb1e658e330622379a870"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/thinframe/http/zipball/4c550c2ee9bfc1eef4b11b6de28860348c734bfc",
-                "reference": "4c550c2ee9bfc1eef4b11b6de28860348c734bfc",
+                "url": "https://api.github.com/repos/thinframe/http/zipball/5c08d03ae0f36a2a30edb1e658e330622379a870",
+                "reference": "5c08d03ae0f36a2a30edb1e658e330622379a870",
                 "shasum": ""
             },
             "require": {
                 "php": ">=5.4.0",
-                "thinframe/foundation": "@stable"
+                "thinframe/foundation": "dev-develop"
             },
             "type": "library",
             "autoload": {
@@ -857,25 +870,25 @@
                 "interfaces",
                 "thinframe"
             ],
-            "time": "2014-01-26 19:47:51"
+            "time": "2014-02-23 13:20:55"
         },
         {
             "name": "thinframe/monolog",
-            "version": "dev-master",
+            "version": "dev-develop",
             "source": {
                 "type": "git",
                 "url": "https://github.com/thinframe/monolog.git",
-                "reference": "6c70016bff4204bcf6876445a3dbe1f794e26943"
+                "reference": "98c52a2be8a7cbe594d010cd5937a56f8353d733"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/thinframe/monolog/zipball/6c70016bff4204bcf6876445a3dbe1f794e26943",
-                "reference": "6c70016bff4204bcf6876445a3dbe1f794e26943",
+                "url": "https://api.github.com/repos/thinframe/monolog/zipball/98c52a2be8a7cbe594d010cd5937a56f8353d733",
+                "reference": "98c52a2be8a7cbe594d010cd5937a56f8353d733",
                 "shasum": ""
             },
             "require": {
                 "monolog/monolog": "@stable",
-                "thinframe/applications": "@stable"
+                "thinframe/applications": "dev-develop"
             },
             "type": "library",
             "extra": {
@@ -907,7 +920,7 @@
                 "monolog",
                 "thinframe"
             ],
-            "time": "2014-01-31 15:27:07"
+            "time": "2014-02-13 20:48:03"
         }
     ],
     "packages-dev": [
@@ -918,9 +931,9 @@
     ],
     "minimum-stability": "dev",
     "stability-flags": {
-        "thinframe/foundation": 0,
-        "thinframe/http": 0,
-        "thinframe/applications": 0,
+        "thinframe/foundation": 20,
+        "thinframe/http": 20,
+        "thinframe/applications": 20,
         "thinframe/events": 20,
         "thinframe/monolog": 20,
         "react/react": 20

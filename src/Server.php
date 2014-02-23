@@ -3,7 +3,7 @@
 /**
  * /src/Server.php
  *
- * @copyright 2013 Sorin Badea <sorin.badea91@gmail.com>
+ * @author    Sorin Badea <sorin.badea91@gmail.com>
  * @license   MIT license (see the license file in the root directory)
  */
 
@@ -15,7 +15,6 @@ use React\Http\Request;
 use React\Http\Response;
 use React\Http\Server as ReactHttpServer;
 use React\Socket\Server as ReactSocketServer;
-use ThinFrame\Applications\DependencyInjection\Extensions\ConfigurationAwareInterface;
 use ThinFrame\Events\DispatcherAwareTrait;
 use ThinFrame\Server\React\RequestResolver;
 
@@ -25,12 +24,32 @@ use ThinFrame\Server\React\RequestResolver;
  * @package ThinFrame\Server
  * @since   0.2
  */
-class Server implements ConfigurationAwareInterface
+class Server
 {
     use DispatcherAwareTrait;
     use LoggerAwareTrait;
 
-    private $configuration = ['listen' => ['port' => 1337, 'host' => '127.0.0.1']];
+    /**
+     * @var string
+     */
+    private $host;
+    /**
+     * @var string
+     */
+    private $port;
+
+    /**
+     * Constructor
+     *
+     * @param string $host
+     * @param string $port
+     */
+    public function __construct($host = '127.0.0.1', $port = '1337')
+    {
+        $this->host = $host;
+        $this->port = $port;
+    }
+
     /**
      * @var LoopInterface
      */
@@ -43,16 +62,6 @@ class Server implements ConfigurationAwareInterface
      * @var ReactHttpServer
      */
     private $httpServer;
-
-    /**
-     * @param array $configuration
-     *
-     */
-    public function setConfiguration(array $configuration)
-    {
-        $this->configuration = array_replace_recursive($this->configuration, $configuration);
-    }
-
 
     /**
      * @param ReactHttpServer $httpServer
@@ -85,12 +94,11 @@ class Server implements ConfigurationAwareInterface
     {
         $this->httpServer->on('request', [$this, 'handleRequest']);
         $this->logger->info(
-            "Server is listening at " . $this->configuration['listen']['host'] .
-            ":" . $this->configuration['listen']['port']
+            "Server is listening at " . $this->host . ":" . $this->port
         );
         $this->socketServer->listen(
-            $this->configuration['listen']['port'],
-            $this->configuration['listen']['host']
+            $this->port,
+            $this->host
         );
         $this->eventLoop->run();
     }
@@ -102,7 +110,7 @@ class Server implements ConfigurationAwareInterface
      */
     public function getPort()
     {
-        return $this->configuration['listen']['port'];
+        return $this->port;
     }
 
     /**
@@ -112,7 +120,7 @@ class Server implements ConfigurationAwareInterface
      */
     public function getHost()
     {
-        return $this->configuration['listen']['host'];
+        return $this->host;
     }
 
     /**

@@ -1,18 +1,20 @@
 <?php
 
 /**
- * /src/ThinFrame/Server/ServerApplication.php
+ * src/ServerApplication.php
  *
- * @copyright 2013 Sorin Badea <sorin.badea91@gmail.com>
+ * @author    Sorin Badea <sorin.badea91@gmail.com>
  * @license   MIT license (see the license file in the root directory)
  */
 
 namespace ThinFrame\Server;
 
+use PhpCollection\Map;
 use ThinFrame\Applications\AbstractApplication;
 use ThinFrame\Applications\DependencyInjection\ContainerConfigurator;
-use ThinFrame\Applications\DependencyInjection\Extensions\ConfigurationManager;
 use ThinFrame\Events\EventsApplication;
+use ThinFrame\Monolog\MonologApplication;
+use ThinFrame\Server\DependencyInjection\HybridExtension;
 
 /**
  * Class ServerApplication
@@ -23,49 +25,54 @@ use ThinFrame\Events\EventsApplication;
 class ServerApplication extends AbstractApplication
 {
     /**
-     * initialize configurator
-     *
-     * @param ContainerConfigurator $configurator
-     *
-     * @return mixed
-     */
-    public function initializeConfigurator(ContainerConfigurator $configurator)
-    {
-        $configurator->addConfigurationManager(new ConfigurationManager('thinframe.server', 'thinframe.server'));
-    }
-
-    /**
-     * Get configuration files
-     *
-     * @return mixed
-     */
-    public function getConfigurationFiles()
-    {
-        return [
-            'resources/services.yml',
-            'resources/config.yml'
-        ];
-    }
-
-    /**
      * Get application name
      *
      * @return string
      */
-    public function getApplicationName()
+    public function getName()
     {
-        return 'ThinFrameServer';
+        return $this->reflector->getShortName();
     }
 
     /**
-     * Get parent applications
+     * Get application parents
      *
      * @return AbstractApplication[]
      */
-    protected function getParentApplications()
+    public function getParents()
     {
         return [
-            new EventsApplication()
+            new EventsApplication(),
+            new MonologApplication(),
         ];
+    }
+
+    /**
+     * Set different options for the container configurator
+     *
+     * @param ContainerConfigurator $configurator
+     */
+    protected function setConfiguration(ContainerConfigurator $configurator)
+    {
+        $configurator
+            ->addResources(
+                [
+                    'Resources/services/services.yml',
+                    'Resources/services/config.yml'
+                ]
+            )
+            ->addExtension($hybridExtension = new HybridExtension())
+            ->addCompilerPass($hybridExtension);
+    }
+
+    /**
+     * Set application metadata
+     *
+     * @param Map $metadata
+     *
+     */
+    protected function setMetadata(Map $metadata)
+    {
+        //noop
     }
 }

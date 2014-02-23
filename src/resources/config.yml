@@ -1,4 +1,0 @@
-thinframe.server:
-    listen:
-        host: localhost
-        port: 1337
