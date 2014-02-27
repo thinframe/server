@@ -114,6 +114,16 @@ class Server
     }
 
     /**
+     * Set the server port
+     *
+     * @param int $port
+     */
+    public function setPort($port)
+    {
+        $this->port = $port;
+    }
+
+    /**
      * Get server host
      *
      * @return string
@@ -121,6 +131,16 @@ class Server
     public function getHost()
     {
         return $this->host;
+    }
+
+    /**
+     * Set the server host
+     *
+     * @param string $host
+     */
+    public function setHost($host)
+    {
+        $this->host = $host;
     }
 
     /**
