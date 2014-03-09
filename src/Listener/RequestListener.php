@@ -1,8 +1,6 @@
 <?php
 
 /**
- * /src/Listeners/RequestListener.php
- *
  * @author    Sorin Badea <sorin.badea91@gmail.com>
  * @license   MIT license (see the license file in the root directory)
  */
@@ -22,7 +20,7 @@ use ThinFrame\Server\Http\RequestFactory;
 use ThinFrame\Server\Http\Response;
 
 /**
- * Class RequestListener
+ * RequestListener
  *
  * @package ThinFrame\Server\Listeners
  * @since   0.2

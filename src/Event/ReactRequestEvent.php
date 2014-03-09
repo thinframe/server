@@ -1,8 +1,6 @@
 <?php
 
 /**
- * /src/Events/ReactRequestEvent.php
- *
  * @author    Sorin Badea <sorin.badea91@gmail.com>
  * @license   MIT license (see the license file in the root directory)
  */
@@ -14,7 +12,7 @@ use React\Http\Response;
 use ThinFrame\Events\AbstractEvent;
 
 /**
- * Class ReactRequest
+ * ReactRequest
  *
  * @package ThinFrame\Server\Events
  * @since   0.1
@@ -42,7 +40,7 @@ class ReactRequestEvent extends AbstractEvent
      */
     public function getRequest()
     {
-        return $this->getPayload()->get('request')->get();
+        return $this->getPayload()->get('request')->getOrElse(null);
     }
 
     /**
@@ -52,7 +50,7 @@ class ReactRequestEvent extends AbstractEvent
      */
     public function getResponse()
     {
-        return $this->getPayload()->get('response')->get();
+        return $this->getPayload()->get('response')->getOrElse(null);
     }
 
     /**
@@ -62,6 +60,6 @@ class ReactRequestEvent extends AbstractEvent
      */
     public function getData()
     {
-        return $this->getPayload()->get('data')->get();
+        return $this->getPayload()->get('data')->getOrElse(null);
     }
 }

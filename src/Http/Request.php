@@ -1,8 +1,6 @@
 <?php
 
 /**
- * /src/Http/Request.php
- *
  * @author    Sorin Badea <sorin.badea91@gmail.com>
  * @license   MIT license (see the license file in the root directory)
  */
@@ -14,7 +12,7 @@ use ThinFrame\Http\Foundation\AbstractRequest;
 use ThinFrame\Http\Util\BodyParser;
 
 /**
- * Class Request
+ * Request
  *
  * @package ThinFrame\Server\Http
  * @since   0.2
@@ -32,6 +30,8 @@ class Request extends AbstractRequest
     private $bodyParser;
 
     /**
+     * Set react request object
+     *
      * @param ReactRequest $reactRequest
      */
     public function setReactRequest(ReactRequest $reactRequest)
@@ -40,6 +40,8 @@ class Request extends AbstractRequest
     }
 
     /**
+     * Get react request object
+     *
      * @return ReactRequest
      */
     public function getReactRequest()
@@ -48,6 +50,8 @@ class Request extends AbstractRequest
     }
 
     /**
+     * Set body parser
+     *
      * @param BodyParser $bodyParser
      */
     public function setBodyParser(BodyParser $bodyParser)
@@ -56,6 +60,8 @@ class Request extends AbstractRequest
     }
 
     /**
+     * Get body parser
+     *
      * @return BodyParser
      */
     public function getBodyParser()

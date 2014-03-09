@@ -1,8 +1,6 @@
 <?php
 
 /**
- * src/ServerApplication.php
- *
  * @author    Sorin Badea <sorin.badea91@gmail.com>
  * @license   MIT license (see the license file in the root directory)
  */
@@ -17,7 +15,7 @@ use ThinFrame\Monolog\MonologApplication;
 use ThinFrame\Server\DependencyInjection\HybridExtension;
 
 /**
- * Class ServerApplication
+ * ServerApplication
  *
  * @package ThinFrame\Server
  * @since   0.2

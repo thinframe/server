@@ -1,8 +1,6 @@
 <?php
 
 /**
- * /src/Http/Cookie.php
- *
  * @author    Sorin Badea <sorin.badea91@gmail.com>
  * @license   MIT license (see the license file in the root directory)
  */
@@ -14,7 +12,7 @@ use ThinFrame\Foundation\Helper\TypeCheck;
 use ThinFrame\Http\Foundation\CookieInterface;
 
 /**
- * Class Cookie
+ * Cookie
  *
  * @package ThinFrame\Server\Http
  * @since   0.2
@@ -51,7 +49,7 @@ class Cookie implements CookieInterface
     private $httpOnly = false;
 
     /**
-     * Cookie constructor
+     * Constructor
      */
     public function __construct($name, $value)
     {
@@ -71,6 +69,8 @@ class Cookie implements CookieInterface
     }
 
     /**
+     * Get header as string
+     *
      * @return string
      */
     public function getAsHeaderString()
@@ -88,10 +88,10 @@ class Cookie implements CookieInterface
             "domain"  => $this->getDomain()
         ];
 
-        if ($this->getSecure()) {
+        if ($this->isSecure()) {
             $cookieParams['flags'] += HTTP_COOKIE_SECURE;
         }
-        if ($this->getHttpOnly()) {
+        if ($this->isHttpOnly()) {
             $cookieParams['flags'] += HTTP_COOKIE_HTTPONLY;
         }
 
@@ -99,6 +99,8 @@ class Cookie implements CookieInterface
     }
 
     /**
+     * Get cookie name
+     *
      * @return string
      */
     public function getName()
@@ -107,8 +109,11 @@ class Cookie implements CookieInterface
     }
 
     /**
-     * @param $name
-     * return $this;
+     * Set cookie name
+     *
+     * @param string $name
+     *
+     * @return $this
      */
     public function setName($name)
     {
@@ -117,6 +122,8 @@ class Cookie implements CookieInterface
     }
 
     /**
+     * Get cookie value
+     *
      * @return mixed
      */
     public function getValue()
@@ -125,7 +132,9 @@ class Cookie implements CookieInterface
     }
 
     /**
-     * @param $value
+     * Set cookie value
+     *
+     * @param mixed $value
      *
      * @return $this
      */
@@ -137,6 +146,8 @@ class Cookie implements CookieInterface
     }
 
     /**
+     * Get cookie expiration date
+     *
      * @return \DateTime
      */
     public function getExpires()
@@ -145,6 +156,8 @@ class Cookie implements CookieInterface
     }
 
     /**
+     * Set cookie expiration date
+     *
      * @param \DateTime $expires
      *
      * @return $this
@@ -157,6 +170,8 @@ class Cookie implements CookieInterface
     }
 
     /**
+     * Get cookie path
+     *
      * @return string
      */
     public function getPath()
@@ -165,7 +180,9 @@ class Cookie implements CookieInterface
     }
 
     /**
-     * @param $path
+     * Set cookie path
+     *
+     * @param string $path
      *
      * @return $this
      */
@@ -178,6 +195,8 @@ class Cookie implements CookieInterface
     }
 
     /**
+     * Get cookie domain
+     *
      * @return string
      */
     public function getDomain()
@@ -186,6 +205,8 @@ class Cookie implements CookieInterface
     }
 
     /**
+     * Set cookie domain
+     *
      * @param $domain
      *
      * @return $this
@@ -199,35 +220,23 @@ class Cookie implements CookieInterface
     }
 
     /**
-     * @return boolean
-     */
-    public function getSecure()
-    {
-        return $this->secure;
-    }
-
-    /**
-     * @param $secure
+     * Set cookie secure flag
+     *
+     * @param $secured
      *
      * @return $this
      */
-    public function setSecure($secure)
+    public function setSecure($secured)
     {
         TypeCheck::doCheck(DataType::BOOLEAN);
-        $this->secure = $secure;
+        $this->secure = $secured;
 
         return $this;
     }
 
     /**
-     * @return boolean
-     */
-    public function getHttpOnly()
-    {
-        return $this->httpOnly;
-    }
-
-    /**
+     * Set http only flag
+     *
      * @param $httpOnly
      *
      * @return $this

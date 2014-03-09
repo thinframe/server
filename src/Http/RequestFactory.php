@@ -1,8 +1,6 @@
 <?php
 
 /**
- * /src/Http/RequestFactory.php
- *
  * @author    Sorin Badea <sorin.badea91@gmail.com>
  * @license   MIT license (see the license file in the root directory)
  */
@@ -15,7 +13,7 @@ use ThinFrame\Http\Constant\Method;
 use ThinFrame\Http\Util\BodyParser;
 
 /**
- * Class RequestFactory
+ * RequestFactory
  *
  * @package ThinFrame\Server\Http
  * @since   0.2
@@ -51,7 +49,10 @@ class RequestFactory
         $request->setPath($reactRequest->getPath());
 
         if ($request->getHeaders()->containsKey('Cookie')) {
-            $cookieData = http_parse_cookie($request->getHeaders()->get('Cookie')->get(), HTTP_COOKIE_PARSE_RAW);
+            $cookieData = http_parse_cookie(
+                $request->getHeaders()->get('Cookie')->getOrElse(''),
+                HTTP_COOKIE_PARSE_RAW
+            );
             $request->setCookies(new Map($cookieData->cookies));
         } else {
             $request->setCookies(new Map());

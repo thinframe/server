@@ -1,8 +1,6 @@
 <?php
 
 /**
- * /src/React/RequestResolver.php
- *
  * @author    Sorin Badea <sorin.badea91@gmail.com>
  * @license   MIT license (see the license file in the root directory)
  */
@@ -15,7 +13,7 @@ use ThinFrame\Events\Dispatcher;
 use ThinFrame\Server\Event\ReactRequestEvent;
 
 /**
- * Class RequestResolver
+ * RequestResolver
  *
  * @package ThinFrame\Server\React
  * @since   0.2

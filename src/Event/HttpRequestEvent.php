@@ -1,8 +1,6 @@
 <?php
 
 /**
- * /src/Events/HttpRequestEvent.php
- *
  * @author    Sorin Badea <sorin.badea91@gmail.com>
  * @license   MIT license (see the license file in the root directory)
  */
@@ -14,7 +12,7 @@ use ThinFrame\Server\Http\Request;
 use ThinFrame\Server\Http\Response;
 
 /**
- * Class HttpRequestEvent
+ * HttpRequestEvent
  *
  * @package ThinFrame\Server\Events
  * @since   0.1
@@ -41,7 +39,7 @@ class HttpRequestEvent extends AbstractEvent
      */
     public function getRequest()
     {
-        return $this->getPayload()->get('request')->get();
+        return $this->getPayload()->get('request')->getOrElse(null);
     }
 
     /**
@@ -51,6 +49,6 @@ class HttpRequestEvent extends AbstractEvent
      */
     public function getResponse()
     {
-        return $this->getPayload()->get('response')->get();
+        return $this->getPayload()->get('response')->getOrElse(null);
     }
 }

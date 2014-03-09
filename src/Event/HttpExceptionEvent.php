@@ -1,8 +1,6 @@
 <?php
 
 /**
- * /src/Events/HttpExceptionEvent.php
- *
  * @author    Sorin Badea <sorin.badea91@gmail.com>
  * @license   MIT license (see the license file in the root directory)
  */
@@ -15,7 +13,7 @@ use ThinFrame\Server\Http\Request;
 use ThinFrame\Server\Http\Response;
 
 /**
- * Class HttpExceptionEvent
+ * HttpExceptionEvent
  *
  * @package ThinFrame\Server\Events
  * @since   0.1
@@ -46,7 +44,7 @@ class HttpExceptionEvent extends AbstractEvent
      */
     public function getHttpException()
     {
-        return $this->getPayload()->get('exception')->get();
+        return $this->getPayload()->get('exception')->getOrElse(null);
     }
 
     /**
@@ -56,7 +54,7 @@ class HttpExceptionEvent extends AbstractEvent
      */
     public function getRequest()
     {
-        return $this->getPayload()->get('request')->get();
+        return $this->getPayload()->get('request')->getOrElse(null);
     }
 
     /**
@@ -66,6 +64,6 @@ class HttpExceptionEvent extends AbstractEvent
      */
     public function getResponse()
     {
-        return $this->getPayload()->get('response')->get();
+        return $this->getPayload()->get('response')->getOrElse(null);
     }
 }

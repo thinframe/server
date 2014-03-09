@@ -1,8 +1,6 @@
 <?php
 
 /**
- * /src/Http/Response.php
- *
  * @author    Sorin Badea <sorin.badea91@gmail.com>
  * @license   MIT license (see the license file in the root directory)
  */
@@ -15,9 +13,8 @@ use ThinFrame\Http\Constant\StatusCode;
 use ThinFrame\Http\Foundation\CookieInterface;
 use ThinFrame\Http\Foundation\ResponseInterface;
 
-
 /**
- * Class Response
+ * Response
  *
  * @package ThinFrame\Server\Http
  * @since   0.2
@@ -54,6 +51,8 @@ class Response implements ResponseInterface
     }
 
     /**
+     * Set react response object
+     *
      * @param ReactResponse $reactResponse
      */
     public function setReactResponse(ReactResponse $reactResponse)
@@ -62,6 +61,8 @@ class Response implements ResponseInterface
     }
 
     /**
+     * Get react response object
+     *
      * @return ReactResponse
      */
     public function getReactResponse()

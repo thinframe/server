@@ -1,5 +1,10 @@
 <?php
 
+/**
+ * @author    Sorin Badea <sorin.badea91@gmail.com>
+ * @license   MIT license (see the license file in the root directory)
+ */
+
 namespace ThinFrame\Server\DependencyInjection;
 
 use Symfony\Component\Config\Definition\Processor;
@@ -8,7 +13,7 @@ use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\DependencyInjection\Extension\ExtensionInterface;
 
 /**
- * Class HybridExtension
+ * HybridExtension
  *
  * @package ThinFrame\Server\DependencyInjection
  * @since   0.3
