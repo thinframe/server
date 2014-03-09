@@ -7,7 +7,7 @@
  * @license   MIT license (see the license file in the root directory)
  */
 
-namespace ThinFrame\Server\Exceptions;
+namespace ThinFrame\Server\Exception;
 
 use Exception;
 use ThinFrame\Http\Constants\StatusCode;

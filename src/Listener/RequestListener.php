@@ -7,17 +7,17 @@
  * @license   MIT license (see the license file in the root directory)
  */
 
-namespace ThinFrame\Server\Listeners;
+namespace ThinFrame\Server\Listener;
 
 use ThinFrame\Events\DispatcherAwareTrait;
 use ThinFrame\Events\ListenerInterface;
 use ThinFrame\Http\Constants\StatusCode;
-use ThinFrame\Server\Events\HttpExceptionEvent;
-use ThinFrame\Server\Events\HttpRequestEvent;
-use ThinFrame\Server\Events\ReactRequestEvent;
-use ThinFrame\Server\Events\UnknownHttpExceptionEvent;
-use ThinFrame\Server\Exceptions\AbstractHttpException;
-use ThinFrame\Server\Exceptions\NotFoundHttpException;
+use ThinFrame\Server\Event\HttpExceptionEvent;
+use ThinFrame\Server\Event\HttpRequestEvent;
+use ThinFrame\Server\Event\ReactRequestEvent;
+use ThinFrame\Server\Event\UnknownHttpExceptionEvent;
+use ThinFrame\Server\Exception\AbstractHttpException;
+use ThinFrame\Server\Exception\NotFoundHttpException;
 use ThinFrame\Server\Http\RequestFactory;
 use ThinFrame\Server\Http\Response;
 

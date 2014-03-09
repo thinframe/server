@@ -7,7 +7,7 @@
  * @license   MIT license (see the license file in the root directory)
  */
 
-namespace ThinFrame\Server\Events;
+namespace ThinFrame\Server\Event;
 
 use ThinFrame\Events\AbstractEvent;
 use ThinFrame\Server\Http\Request;

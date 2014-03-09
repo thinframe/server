@@ -1,24 +1,24 @@
 <?php
 
 /**
- * src/Exceptions/NotFoundHttpException.php
+ * src/Exceptions/UnauthorizedHttpException.php
  *
  * @author    Sorin Badea <sorin.badea91@gmail.com>
  * @license   MIT license (see the license file in the root directory)
  */
 
-namespace ThinFrame\Server\Exceptions;
+namespace ThinFrame\Server\Exception;
 
 use Exception;
 use ThinFrame\Http\Constants\StatusCode;
 
 /**
- * Class NotFoundHttpException
+ * Class UnauthorizedHttpException
  *
  * @package ThinFrame\Server\Exceptions
  * @since   0.3
  */
-class NotFoundHttpException extends AbstractHttpException
+class UnauthorizedHttpException extends AbstractHttpException
 {
     /**
      * Constructor
@@ -29,7 +29,7 @@ class NotFoundHttpException extends AbstractHttpException
     public function __construct($message = "", Exception $previous = null)
     {
         parent::__construct(
-            new StatusCode(StatusCode::NOT_FOUND),
+            new StatusCode(StatusCode::UNAUTHORIZED),
             $message,
             $previous
         );

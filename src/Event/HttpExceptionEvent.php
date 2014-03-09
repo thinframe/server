@@ -7,10 +7,10 @@
  * @license   MIT license (see the license file in the root directory)
  */
 
-namespace ThinFrame\Server\Events;
+namespace ThinFrame\Server\Event;
 
 use ThinFrame\Events\AbstractEvent;
-use ThinFrame\Server\Exceptions\AbstractHttpException;
+use ThinFrame\Server\Exception\AbstractHttpException;
 use ThinFrame\Server\Http\Request;
 use ThinFrame\Server\Http\Response;
 

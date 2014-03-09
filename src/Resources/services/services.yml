@@ -13,7 +13,7 @@ services:
     arguments: ['@server.react.socket_server']
 
   server.listeners.request:
-    class: 'ThinFrame\Server\Listeners\RequestListener'
+    class: 'ThinFrame\Server\Listener\RequestListener'
     tags:
         - { name: 'events.listener'}
 

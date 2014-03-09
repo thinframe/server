@@ -1,24 +1,24 @@
 <?php
 
 /**
- * src/Exceptions/UnauthorizedHttpException.php
+ * src/Exceptions/InternalServerErrorHttpException.php
  *
  * @author    Sorin Badea <sorin.badea91@gmail.com>
  * @license   MIT license (see the license file in the root directory)
  */
 
-namespace ThinFrame\Server\Exceptions;
+namespace ThinFrame\Server\Exception;
 
 use Exception;
 use ThinFrame\Http\Constants\StatusCode;
 
 /**
- * Class UnauthorizedHttpException
+ * Class InternalServerErrorHttpException
  *
  * @package ThinFrame\Server\Exceptions
  * @since   0.3
  */
-class UnauthorizedHttpException extends AbstractHttpException
+class InternalServerErrorHttpException extends AbstractHttpException
 {
     /**
      * Constructor
@@ -29,7 +29,7 @@ class UnauthorizedHttpException extends AbstractHttpException
     public function __construct($message = "", Exception $previous = null)
     {
         parent::__construct(
-            new StatusCode(StatusCode::UNAUTHORIZED),
+            new StatusCode(StatusCode::INTERNAL_SERVER_ERROR),
             $message,
             $previous
         );

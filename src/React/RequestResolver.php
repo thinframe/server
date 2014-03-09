@@ -12,7 +12,7 @@ namespace ThinFrame\Server\React;
 use React\Http\Request;
 use React\Http\Response;
 use ThinFrame\Events\Dispatcher;
-use ThinFrame\Server\Events\ReactRequestEvent;
+use ThinFrame\Server\Event\ReactRequestEvent;
 
 /**
  * Class RequestResolver
