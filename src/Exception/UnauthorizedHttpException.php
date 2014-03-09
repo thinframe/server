@@ -10,7 +10,7 @@
 namespace ThinFrame\Server\Exception;
 
 use Exception;
-use ThinFrame\Http\Constants\StatusCode;
+use ThinFrame\Http\Constant\StatusCode;
 
 /**
  * Class UnauthorizedHttpException

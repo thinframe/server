@@ -9,8 +9,8 @@
 
 namespace ThinFrame\Server\Http;
 
-use ThinFrame\Foundation\Constants\DataType;
-use ThinFrame\Foundation\Helpers\TypeCheck;
+use ThinFrame\Foundation\Constant\DataType;
+use ThinFrame\Foundation\Helper\TypeCheck;
 use ThinFrame\Http\Foundation\CookieInterface;
 
 /**

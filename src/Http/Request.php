@@ -11,7 +11,7 @@ namespace ThinFrame\Server\Http;
 
 use React\Http\Request as ReactRequest;
 use ThinFrame\Http\Foundation\AbstractRequest;
-use ThinFrame\Http\Utils\BodyParser;
+use ThinFrame\Http\Util\BodyParser;
 
 /**
  * Class Request

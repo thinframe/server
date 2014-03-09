@@ -11,8 +11,8 @@ namespace ThinFrame\Server\Http;
 
 use PhpCollection\Map;
 use React\Http\Request as ReactRequest;
-use ThinFrame\Http\Constants\Method;
-use ThinFrame\Http\Utils\BodyParser;
+use ThinFrame\Http\Constant\Method;
+use ThinFrame\Http\Util\BodyParser;
 
 /**
  * Class RequestFactory

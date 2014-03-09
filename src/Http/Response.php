@@ -11,7 +11,7 @@ namespace ThinFrame\Server\Http;
 
 use PhpCollection\Map;
 use React\Http\Response as ReactResponse;
-use ThinFrame\Http\Constants\StatusCode;
+use ThinFrame\Http\Constant\StatusCode;
 use ThinFrame\Http\Foundation\CookieInterface;
 use ThinFrame\Http\Foundation\ResponseInterface;
 

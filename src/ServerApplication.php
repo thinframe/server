@@ -57,8 +57,8 @@ class ServerApplication extends AbstractApplication
         $configurator
             ->addResources(
                 [
-                    'Resources/services/services.yml',
-                    'Resources/services/config.yml'
+                    'Resources/config/services.yml',
+                    'Resources/config/config.yml'
                 ]
             )
             ->addExtension($hybridExtension = new HybridExtension())

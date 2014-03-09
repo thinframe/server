@@ -11,7 +11,7 @@ namespace ThinFrame\Server\Listener;
 
 use ThinFrame\Events\DispatcherAwareTrait;
 use ThinFrame\Events\ListenerInterface;
-use ThinFrame\Http\Constants\StatusCode;
+use ThinFrame\Http\Constant\StatusCode;
 use ThinFrame\Server\Event\HttpExceptionEvent;
 use ThinFrame\Server\Event\HttpRequestEvent;
 use ThinFrame\Server\Event\ReactRequestEvent;
