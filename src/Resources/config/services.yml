@@ -1,25 +1,25 @@
 services:
-  server.react.event_loop:
-    class: 'React\EventLoop\LoopInterface'
-    factory_class: 'React\EventLoop\Factory'
-    factory_method: 'create'
+    server.react.event_loop:
+        class: '%server.react.event_loop.class%'
+        factory_class: '%server.react.event_loop.factory.class%'
+        factory_method: 'create'
 
-  server.react.socket_server:
-    class: 'React\Socket\Server'
-    arguments: ['@server.react.event_loop']
+    server.react.socket_server:
+        class: '%server.react.socket_server.class%'
+        arguments: ['@server.react.event_loop']
 
-  server.react.http_server:
-    class: 'React\Http\Server'
-    arguments: ['@server.react.socket_server']
+    server.react.http_server:
+        class: '%server.react.http_server.class%'
+        arguments: ['@server.react.socket_server']
 
-  server.listeners.request:
-    class: 'ThinFrame\Server\Listener\RequestListener'
-    tags:
-        - { name: 'events.listener'}
+    server.listeners.request:
+        class: '%server.listeners.request.class%'
+        tags:
+            - { name: 'events.listener'}
 
-  server:
-    class: 'ThinFrame\Server\Server'
-    calls:
-        - ['setEventLoop', ['@server.react.event_loop']]
-        - ['setSocketServer',['@server.react.socket_server']]
-        - ['setHttpServer', ['@server.react.http_server']]
+    server:
+        class: '%server.class%'
+        calls:
+            - ['setEventLoop', ['@server.react.event_loop']]
+            - ['setSocketServer',['@server.react.socket_server']]
+            - ['setHttpServer', ['@server.react.http_server']]

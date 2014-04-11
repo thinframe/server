@@ -1,3 +1,11 @@
+parameters:
+    server.react.event_loop.class: 'React\EventLoop\LoopInterface'
+    server.react.event_loop.factory.class: 'React\EventLoop\Factory'
+    server.react.socket_server.class: 'React\Socket\Server'
+    server.react.http_server.class: 'React\Http\Server'
+    server.listeners.request.class: 'ThinFrame\Server\Listener\RequestListener'
+    server.class: 'ThinFrame\Server\Server'
+
 server:
     host: localhost
     port: 1337
